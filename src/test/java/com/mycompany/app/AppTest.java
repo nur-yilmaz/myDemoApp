@@ -78,7 +78,9 @@ public class AppTest
       }  
       public void testEmptyArray() {
         ArrayList<Integer> array = new ArrayList<>();
-        assertFalse(new App().determinant(array, 1));
+        ArrayList<Integer> secondArray = new ArrayList<>(Arrays.asList(4,-2,5));
+        ArrayList<Integer> thirdArray = new ArrayList<>(Arrays.asList(2,8,7,9));
+        assertFalse(new App().determinant(array,secondArray ,thirdArray, -306));
       }
   
       public void testAllNull() {
