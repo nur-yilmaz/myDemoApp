@@ -10,20 +10,20 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App 
 {
-    public static boolean determinant(ArrayList<Integer> firstArray,ArrayList<Integer> secondArray,ArrayList<Integer> thirdArray, int e) {
+    public static String determinant(ArrayList<Integer> firstArray,ArrayList<Integer> secondArray,ArrayList<Integer> thirdArray, int e) {
         System.out.println("inside determinant");
         if (firstArray == null || secondArray == null ||thirdArray == null )
-        	return false;
+        	return "One of the boxes is empty. Please enter three 3 sized arrays.";
         if(firstArray.size() != 3)
-            return false;
+            return "Every box needs to contain exactly 3 integers.";
     
         if (firstArray.size() != secondArray.size() || firstArray.size() != thirdArray.size() )
-        	 return false;
+        	 return "Every box needs to contain exactly 3 integers.";
     
         int determinant = firstArray.get(0)*(secondArray.get(1)*thirdArray.get(2) - secondArray.get(2)*thirdArray.get(1))-firstArray.get(1)*(secondArray.get(0)*thirdArray.get(2)- secondArray.get(2)*thirdArray.get(0))+ firstArray.get(2)*(secondArray.get(0)*thirdArray.get(1)- secondArray.get(1)*thirdArray.get(0));
         if(e==determinant)
-            return true;
-        return false;
+            return "Congrats. You guessed right! The determinant is " + e + "! ";
+        return "Sorry, but you guessed wrong. The determinant is " + determinant + ". Please try again! ";
     }
     public static void main( String[] args )
     {
@@ -69,7 +69,7 @@ public class App
           String input4 = req.queryParams("input4").replaceAll("\\s","");
           int input4AsInt = Integer.parseInt(input4);
 
-          boolean result = App.determinant(firstInputList, secondInputList, thirdInputList, input4AsInt);
+          String result = App.determinant(firstInputList, secondInputList, thirdInputList, input4AsInt);
 
           Map map = new HashMap();
           map.put("result", result);
@@ -80,7 +80,7 @@ public class App
         get("/compute",
             (rq, rs) -> {
               Map map = new HashMap();
-              map.put("result", "getting computed!!!");
+              map.put("result", "Hi, let's begin!");
               return new ModelAndView(map, "compute.mustache");
             },
             new MustacheTemplateEngine());
