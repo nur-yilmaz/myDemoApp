@@ -10,16 +10,16 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App 
 {
-    public static int search(ArrayList<Integer> array, int e) {
+    public static boolean search(ArrayList<Integer> array, int e) {
         System.out.println("inside search");
         if (array == null)
-        	return 0;
+        	return false;
 
         for (int elt : array) {
             if (elt == e) 
-                return 1;
+                return true;
         }
-        return 0;
+        return false;
     }
     public static void main( String[] args )
     {
@@ -44,7 +44,7 @@ public class App
           String input2 = req.queryParams("input2").replaceAll("\\s","");
           int input2AsInt = Integer.parseInt(input2);
 
-          int result = App.search(inputList, input2AsInt);
+          boolean result = App.search(inputList, input2AsInt);
 
           Map map = new HashMap();
           map.put("result", result);
