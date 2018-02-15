@@ -13,7 +13,7 @@ public class App
     public static String determinant(ArrayList<Integer> firstArray,ArrayList<Integer> secondArray,ArrayList<Integer> thirdArray, int e) {
         System.out.println("inside determinant");
         if (firstArray == null || secondArray == null ||thirdArray == null )
-        	return "One of the boxes is empty. Please enter three 3 sized arrays.";
+        	return "One of the boxes is null";
         if(firstArray.size() != 3)
             return "Every box needs to contain exactly 3 integers.";
     

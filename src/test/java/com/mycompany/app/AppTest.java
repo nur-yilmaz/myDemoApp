@@ -84,21 +84,21 @@ public class AppTest
       }
   
       public void testAllNull() {
-        assertEquals("One of the boxes is empty. Please enter three 3 sized arrays.",new App().determinant(null, null, null, 1));
+        assertEquals("One of the boxes is null",new App().determinant(null, null, null, 1));
       }
        public void testFirstIsNull() {
         ArrayList<Integer> secondArray = new ArrayList<>(Arrays.asList(4,-2,5));    
         ArrayList<Integer> thirdArray = new ArrayList<>(Arrays.asList(2,8,7));
-        assertEquals("One of the boxes is empty. Please enter three 3 sized arrays.",new App().determinant(null, secondArray, thirdArray, 1));
+        assertEquals("One of the boxes is null",new App().determinant(null, secondArray, thirdArray, 1));
       }
       public void testSecondIsNull() {
         ArrayList<Integer> firstArray = new ArrayList<>(Arrays.asList(6,1,1));
         ArrayList<Integer> thirdArray = new ArrayList<>(Arrays.asList(2,8,7));
-        assertEquals("One of the boxes is empty. Please enter three 3 sized arrays.",new App().determinant(firstArray, null, thirdArray, 1));
+        assertEquals("One of the boxes is null",new App().determinant(firstArray, null, thirdArray, 1));
       }
       public void testThirdIsNull() {
         ArrayList<Integer> firstArray = new ArrayList<>(Arrays.asList(6,1,1));
         ArrayList<Integer> secondArray = new ArrayList<>(Arrays.asList(4,-2,5));
-        assertEquals("One of the boxes is empty. Please enter three 3 sized arrays.",new App().determinant(firstArray, secondArray, null, 1));
+        assertEquals("One of the boxes is null",new App().determinant(firstArray, secondArray, null, 1));
       }  
 }
