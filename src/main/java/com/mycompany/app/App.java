@@ -55,7 +55,7 @@ public class App
         get("/compute",
             (rq, rs) -> {
               Map map = new HashMap();
-              map.put("result", "not computed yet!");
+              map.put("result", "getting computed!!!");
               return new ModelAndView(map, "compute.mustache");
             },
             new MustacheTemplateEngine());
