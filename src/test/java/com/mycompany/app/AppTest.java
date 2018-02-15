@@ -40,23 +40,63 @@ public class AppTest
     {
         assertTrue( true );
     }
-    public void testFound() {
-        ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-        assertTrue(new App().search(array, 4));
+    public void testDeterminantIsTrue() {
+        ArrayList<Integer> firstArray = new ArrayList<>(Arrays.asList(6,1,1));
+        ArrayList<Integer> secondArray = new ArrayList<>(Arrays.asList(4,-2,5));
+        ArrayList<Integer> thirdArray = new ArrayList<>(Arrays.asList(2,8,7));
+        
+        assertTrue(new App().determinant(firstArray, secondArray,thirdArray, -306));
       }
   
-      public void testNotFound() {
-        ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-        assertFalse(new App().search(array, 5));
+     public void testDeterminantIsFalse() {
+        ArrayList<Integer> firstArray = new ArrayList<>(Arrays.asList(6,1,1));
+        ArrayList<Integer> secondArray = new ArrayList<>(Arrays.asList(4,-2,5));
+        ArrayList<Integer> thirdArray = new ArrayList<>(Arrays.asList(2,8,7));
+        
+        assertFalse(new App().determinant(firstArray, secondArray,thirdArray,200));
       }
-  
+      public void testFirstSizeIsNotThree() {
+        ArrayList<Integer> firstArray = new ArrayList<>(Arrays.asList(6,1,1,8));
+        ArrayList<Integer> secondArray = new ArrayList<>(Arrays.asList(4,-2,5));
+        ArrayList<Integer> thirdArray = new ArrayList<>(Arrays.asList(2,8,7));
+        
+        assertFalse(new App().determinant(firstArray,secondArray,thirdArray,-306));
+      }  
+      public void testSecondSizeIsNotThree() {
+        ArrayList<Integer> firstArray = new ArrayList<>(Arrays.asList(6,1,1));
+        ArrayList<Integer> secondArray = new ArrayList<>(Arrays.asList(4,-2,5,8));
+        ArrayList<Integer> thirdArray = new ArrayList<>(Arrays.asList(2,8,7));
+        
+        assertFalse(new App().determinant(firstArray,secondArray,thirdArray,-306));
+      }  
+      public void testThirdSizeIsNotThree() {
+        ArrayList<Integer> firstArray = new ArrayList<>(Arrays.asList(6,1,1));
+        ArrayList<Integer> secondArray = new ArrayList<>(Arrays.asList(4,-2,5));
+        ArrayList<Integer> thirdArray = new ArrayList<>(Arrays.asList(2,8,7,9));
+        
+        assertFalse(new App().determinant(firstArray,secondArray,thirdArray,-306));
+      }  
       public void testEmptyArray() {
         ArrayList<Integer> array = new ArrayList<>();
-        assertFalse(new App().search(array, 1));
+        assertFalse(new App().determinant(array, 1));
       }
   
-      public void testNull() {
-        assertFalse(new App().search(null, 1));
+      public void testAllNull() {
+        assertFalse(new App().determinant(null, null, null, 1));
       }
-  
+       public void testFirstIsNull() {
+        ArrayList<Integer> secondArray = new ArrayList<>(Arrays.asList(4,-2,5));    
+        ArrayList<Integer> thirdArray = new ArrayList<>(Arrays.asList(2,8,7));
+        assertFalse(new App().determinant(null, secondArray, thirdArray, 1));
+      }
+      public void testSecondIsNull() {
+        ArrayList<Integer> firstArray = new ArrayList<>(Arrays.asList(6,1,1));
+        ArrayList<Integer> thirdArray = new ArrayList<>(Arrays.asList(2,8,7));
+        assertFalse(new App().determinant(firstArray, null, thirdArray, 1));
+      }
+      public void testThirdIsNull() {
+        ArrayList<Integer> firstArray = new ArrayList<>(Arrays.asList(6,1,1));
+        ArrayList<Integer> secondArray = new ArrayList<>(Arrays.asList(4,-2,5));
+        assertFalse(new App().determinant(firstArray, secondArray, null, 1));
+      }  
 }
